@@ -26,14 +26,29 @@ public class Container {
         return (y2 - y1);
     }
     
-    public boolean collides(Ball ball){
-        boolean chek = false;
-        if ( ball.getX()-ball.getRadius() >= this.x1 &&  ball.getX() + ball.getRadius() <= this.x2){
-            if (ball.getY() - ball.getRadius() >= this.y1 &&  ball.getY() + ball.getRadius()<= this.y2){
-                 chek = true;
+   private boolean collidesX(Ball ball){
+        if(ball.getX()-ball.getRadius() >= this.x1){
+            if(ball.getX() + ball.getRadius() <= this.x2){
+                return true;
             }
         }
-        return chek;
+        return false;
+    }
+
+    private boolean collidesY(Ball ball){
+        if(ball.getY()-ball.getRadius() >= this.y1){
+            if(ball.getY() + ball.getRadius() <= this.y2){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean collides(Ball ball){
+        if ( collidesX(ball) && collidesY(ball) ){
+            return true;
+        }
+        return false;
     }
 
     @Override
