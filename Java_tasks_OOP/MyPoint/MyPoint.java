@@ -1,5 +1,5 @@
 package MyPoint;
-// тут не int оставила, изменила на double в пакете Triangle
+// тут int оставила, изменила на double в пакете Triangle
 public class MyPoint {
     private int x = 0;
     private int y = 0;
